@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="">
+                <div class="form-group my-2">
+                    <label class="form-label" for="azonosito">Azonosító</label>
+                    <input [(ngModel)]="azonosito" class="form-control" type="number" name="azonosito" id="azonosito">
+                </div>
+                <div class="form-group my-2">
+                    <label class="form-label" for="item">Termék neve</label>
+                    <input [(ngModel)]="item" class="form-control" type="text" name="item" id="item">
+                </div>
+                <div class="form-group my-2">
+                    <label class="form-label" for="darabszam">Darabszám</label>
+                    <input [(ngModel)]="darabszam" class="form-control" type="number" name="darabszam" id="darabszam">
+                </div>
+                <div class="form-group my-2">
+                    <input [(ngModel)]="rendelheto" class="form-check-input" type="checkbox" name="rendelheto" id="rendelheto">
+                    <label class="form-check-label" for="rendelheto">Rendelhető-e?</label>  
+                </div>
+                <div class="form-group my-2">
+                    <button class="btn btn-primary" (click)="felvitel()" type="button">Mentés</button>
+                </div>
+            </form>
+            <table class="my-2 table table-striped">
+                <tr class="table-light">
+                    <th>Azonosító</th>
+                    <th>Termék neve</th>
+                    <th>Darabszám</th>
+                    <th>Rendelhető-e?</th>
+                </tr>
+                <tr *ngFor="let elem of termekek">
+                    <td>{{elem.azonosito}}</td>
+                    <td>{{elem.item | lowercase}}</td>
+                    <td>{{elem.darabszam | number: '1.2-3'}}</td>
+                    <td>{{elem.rendelheto ? 'Igen' : 'Nem'}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
